@@ -102,7 +102,10 @@ app.put('/users/:id',(req,res)=>{
     else{
         const UpdatedUser = users.map((each)=>{
             if(each.id === id){
-                return{}
+                return{
+                    ...each,
+                    ...data,
+                }
             }
             return each;
         });
