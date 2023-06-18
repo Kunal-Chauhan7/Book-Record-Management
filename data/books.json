@@ -1,0 +1,60 @@
+{
+    "books" : [
+        {
+            "id" : "1",
+            "name" : "Da Vinci Code,The",
+            "author" : "Brown, Dan",
+            "genre" : "Crime, Thriller & Adventure",
+            "price" : "20.79",
+            "publisher" : "Transworld"
+        },
+        {
+            "id" : "2",
+            "name" : "Harry Potter and the Deathly Hallows",
+            "author" : "Rowling, J.K.",
+            "genre" : "Children's Fiction",
+            "price" : "17.90",
+            "publisher" : "Bloomsbury"
+        },
+        {
+            "id" : "3",
+            "name" : "Your Name",
+            "author" : "Makoto Shinkai",
+            "genre" : "romantic fantasy",
+            "price" : "70.77",
+            "publisher" : "Kadokawa"
+        },
+        {
+            "id" : "4",
+            "name" : "Berserk",
+            "author" : "Miura, Kentarou",
+            "genre" : "Action",
+            "price" : "40.59",
+            "publisher" : "Dark Horse Comics"
+        },
+        {
+            "id" : "5",
+            "name" : "Attack on Titan",
+            "author" : "Isayama, Hajime",
+            "genre" : "Action",
+            "price" : "40.35",
+            "publisher" : "Kodansha"
+        },
+        {
+            "id" : "6",
+            "name" : "Tokyo Ghoul",
+            "author" : "Ishida, Sui",
+            "genre" : "Action Fantasy",
+            "price" : "74.85",
+            "publisher" : "Viz Media"
+        },
+        {
+            "id" : "7",
+            "name" : "Naruto",
+            "author" : "Kishimoto, Masashi",
+            "genre" : "Adventure",
+            "price" : "50.69",
+            "publisher" : "Shounen Jump"
+        }
+    ]
+}

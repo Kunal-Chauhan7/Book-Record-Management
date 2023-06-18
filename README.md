@@ -5,11 +5,11 @@ This is a book management API backend for the managemnt of records and books
 # Routes and Endpoints
 
 ## /user
-POST :- Create a new user
-GET :- Get list of the all users 
+POST :- Create a new user ✅
+GET :- Get list of the all users ✅ 
 
 ## /user/{id}
-GET :- get user data regarding thier id
+GET :- get user data regarding thier id ✅
 PUT :- update user by thier id 
 DELETE :- Delete user by thier id (check if they have issued any book or not)(is there any fine)
 
@@ -20,7 +20,7 @@ GET :- get user subscription details
 3. Fine if any
 
 ## /books
-GET :- Get all the books
+GET :- Get all the books 
 PUT :- Add new book 
 
 ## /books/{id}
