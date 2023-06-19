@@ -10,8 +10,8 @@ GET :- Get list of the all users ✅
 
 ## /user/{id}
 GET :- get user data regarding thier id ✅
-PUT :- update user by thier id 
-DELETE :- Delete user by thier id (check if they have issued any book or not)(is there any fine)
+PUT :- update user by thier id ✅
+DELETE :- Delete user by thier id (check if they have issued any book or not)(is there any fine) ✅
 
 ## /user/subscription-details/{id}
 GET :- get user subscription details 
