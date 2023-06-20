@@ -20,15 +20,15 @@ GET :- get user subscription details
 3. Fine if any
 
 ## /books
-GET :- Get all the books 
-PUT :- Add new book 
+GET :- Get all the books ✅
+PUT :- Add new book ✅
 
 ## /books/{id}
-GET :- get a specif book by id
-POST :- Update the book by id
+GET :- get a specif book by id ✅
+POST :- Update the book by id ✅
 
 ## /books/issued
-GET :- Gwt all issed book
+GET :- Get all issed book ✅
 
 ## /books/IssuedBooksWithFine
 GET :- Get all the books with fine

@@ -88,4 +88,74 @@ router.get('/issued/by-user',(req,res)=>{
     });
 });
 
+/**
+ * Route :- /books
+ * method :- POST
+ * Decription :- Add new Book
+ * Access :- Public
+ * parameters :- none
+ * Data :- id, name, author, genre, price, publisher
+*/
+
+router.post('/',(req,res)=>{
+    const {data} = req.body;
+    if (!data) {
+        res.status(404).json({
+            success:false,
+            message:"Data not recived",
+        });
+    }
+
+    const book = books.find((each)=>each.id === data.id);
+
+    if (book) {
+        return res.status(404).json({
+            success:false,
+            message:"book with this id already exist",
+        });
+    }
+
+    const newBooks = [...books,data];
+
+    res.status(200).json({
+        success:true,
+        data:newBooks,
+    });
+});
+
+/**
+ * Route :- /books/:id
+ * method :- PUT
+ * Decription :- Updating Book
+ * Access :- Public
+ * parameters :- id
+ * Data :- id, name, author, genre, price, publisher, etc...
+*/
+
+router.put(('/:id'),(req,res)=>{
+    const {data} = req.body;
+    const {id} = req.params;
+
+    const book = books.find((each)=> each.id === id);
+
+    if (!book) {
+        return res.status(404).json({
+            success:false,
+            message:"Book with that do not exist",
+        });
+    }
+    const updatedBook = books.map((each)=>{
+        if(each.id === id){
+            return {...each,...data};
+        }
+        return each;
+    });
+
+    res.status(200).json({
+        success:true,
+        data:updatedBook,
+    });
+});
+
+
 module.exports = router;
