@@ -111,7 +111,7 @@ router.put("/:id", (req, res) => {
     });
 
 
-        /**
+    /**
     * Route :- /users/:id
     * method :- PUT
     * Decription :- Updating user data 
@@ -136,4 +136,71 @@ router.put("/:id", (req, res) => {
                     data : users
                 });
             });
+
+/**
+    * Route :- /users/subscription-details/:id
+    * method :- GET
+    * Decription :- Get all user subscription details 
+    * Access :- Public
+    * parameters :- id
+    */
+
+router.get('/subscription-details/:id',(req,res)=>{
+    const {id} = req.params;
+
+    const user = users.find((each)=>each.id === id);
+
+    if (!user) {
+        return res.status(404).json({
+            success:false,
+            message:"user not found",
+        });
+    }
+
+    const getDateInDays = (data = "") => {
+        let date;
+        if (data === ""){
+            // getting the current date
+            date = new Date();
+        } else {
+            // gertting date on data var
+            date = new Date(data);
+        }
+        let days = Math.floor(date/(1000*60*60*24));
+        return days;
+    };
+
+    const getSubscriptionType = (date) => {
+        if (user.subscriptionType === "basic"){
+            date = date + 90;
+        }
+        else if(user.subscriptionType === "standard"){
+            date = date + 180;
+        }
+        else if(user.subscriptionType === "premium"){
+            date = date + 365;
+        }
+        return date;
+    };
+    let returndate = getDateInDays(user.returnDate);
+    let currentdate = getDateInDays();
+    let subscriptionDate = getDateInDays(user.subscriptionDate);
+    let subscriptionexpire = getSubscriptionType(subscriptionDate);
+    
+    const data = {
+        ...user,
+        subscriptionexpired : subscriptionexpire < currentdate,
+        daysleftforExpiration:
+            subscriptionexpire <= currentdate ? 0 : subscriptionDate - currentdate,
+        fine:
+        returndate < currentdate ? subscriptionexpire <= currentdate ? 200 :100 :0, 
+    };
+
+
+    res.status(200).json({
+        success:true,
+        data: data
+    });
+});
+
 module.exports = router;

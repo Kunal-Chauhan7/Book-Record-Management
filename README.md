@@ -14,7 +14,7 @@ PUT :- update user by thier id ✅
 DELETE :- Delete user by thier id (check if they have issued any book or not)(is there any fine) ✅
 
 ## /user/subscription-details/{id}
-GET :- get user subscription details 
+GET :- get user subscription details ✅
 1.dateofsub
 2. valid date
 3. Fine if any
