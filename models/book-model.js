@@ -26,3 +26,5 @@ const bookSchema = new schema({
     timestamps : true,
 }
 );
+
+module.exports = moongoose.model("Book",bookSchema);
