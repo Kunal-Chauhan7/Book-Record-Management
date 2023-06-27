@@ -2,7 +2,7 @@ const express = require('express');
 const { books } = require('../data/books.json');
 const {users} = require('../data/users.json');
 const router = express.Router();
-const { getAllBooks, getBookById, getAllIssuedBooks, updateBookByID, addNewBook } = require('../controllers/Book-controller');
+const { getAllBooks, getBookById, getAllIssuedBooks, updateBookByID, addNewBook, getSingleBookByname, getBookByName } = require('../controllers/Book-controller');
 
 
 /**
@@ -14,6 +14,16 @@ const { getAllBooks, getBookById, getAllIssuedBooks, updateBookByID, addNewBook 
 */
 
 router.get('/', getAllBooks);
+
+/**
+ * Route :- /books/:id
+ * method :- GET
+ * Decription :- get the requested book specifed by id
+ * Access :- Public
+ * parameters :- id
+*/
+
+router.get('/getbook/:name',getBookByName);
 
 /**
  * Route :- /books/:id

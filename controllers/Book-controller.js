@@ -84,3 +84,16 @@ exports.updateBookByID = async (req,res) => {
       data: updatedBook,
   });
 };
+
+exports.getBookByName = async (req,res) => {
+  const {name} = req.params;
+
+  const Book = await bookModel.findOne({
+    name:name,
+  });
+
+  res.status(200).json({
+      success:true,
+      data: Book,
+  });
+};
