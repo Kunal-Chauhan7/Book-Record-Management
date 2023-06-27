@@ -2,7 +2,7 @@ const express = require('express');
 const { books } = require('../data/books.json');
 const {users} = require('../data/users.json');
 const router = express.Router();
-const { getAllBooks, getBookById, getAllIssuedBooks } = require('../controllers/Book-controller');
+const { getAllBooks, getBookById, getAllIssuedBooks, updateBookByID, addNewBook } = require('../controllers/Book-controller');
 
 
 /**
@@ -43,31 +43,7 @@ router.get('/issued/by-user',getAllIssuedBooks);
  * Data :- id, name, author, genre, price, publisher
 */
 
-router.post('/',(req,res)=>{
-    const {data} = req.body;
-    if (!data) {
-        res.status(404).json({
-            success:false,
-            message:"Data not recived",
-        });
-    }
-
-    const book = books.find((each)=>each.id === data.id);
-
-    if (book) {
-        return res.status(404).json({
-            success:false,
-            message:"book with this id already exist",
-        });
-    }
-
-    const newBooks = [...books,data];
-
-    res.status(200).json({
-        success:true,
-        data:newBooks,
-    });
-});
+router.post('/',addNewBook);
 
 /**
  * Route :- /books/:id
@@ -78,30 +54,7 @@ router.post('/',(req,res)=>{
  * Data :- id, name, author, genre, price, publisher, etc...
 */
 
-router.put(('/:id'),(req,res)=>{
-    const {data} = req.body;
-    const {id} = req.params;
-
-    const book = books.find((each)=> each.id === id);
-
-    if (!book) {
-        return res.status(404).json({
-            success:false,
-            message:"Book with that do not exist",
-        });
-    }
-    const updatedBook = books.map((each)=>{
-        if(each.id === id){
-            return {...each,...data};
-        }
-        return each;
-    });
-
-    res.status(200).json({
-        success:true,
-        data:updatedBook,
-    });
-});
+router.put('/:id',updateBookByID);
 
 
 /**
