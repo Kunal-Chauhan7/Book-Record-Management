@@ -1,6 +1,7 @@
 const express = require('express');
 const {users} = require('../data/users.json');
 const { getallusers, singleUserById, deleteUser, updateUserById, CreateNewUser, getSubscriptionDetailsById } = require('../controllers/User-controller');
+const router = express.Router();
 
 /**
  * Route :- /users
